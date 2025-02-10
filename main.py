@@ -199,7 +199,7 @@ tower_costs = {
     },
 }
 
-difficulty = {
+difficulty_multipliers = {
     "Easy": 0.85,
     "Medium": 1.0,
     "Hard": 1.15,
@@ -222,12 +222,15 @@ tower_dropdown.pack()
 # Upgrade path selection
 upgrade_label = tk.Label(root, text="Select Crosspath:")
 upgrade_label.pack()
-
 # Difficulty selection dropdown
 tk.Label(root, text="Select Difficulty:").pack()
 selected_difficulty = tk.StringVar(value="Medium")
-difficulty_dropdown = ttk.Combobox(root, textvariable=selected_difficulty, values=list(difficulty_multipliers.keys()))
+difficulty_dropdown = ttk.Combobox(root, textvariable=selected_difficulty, values=["Easy", "Medium", "Hard", "Impoppable"])
 difficulty_dropdown.pack()
+
+# Upgrade path selection
+upgrade_label = tk.Label(root, text="Select Crosspath:")
+upgrade_label.pack()
 
 selected_upgrade = tk.StringVar()
 upgrade_dropdown = ttk.Combobox(root, textvariable=selected_upgrade)
@@ -273,11 +276,16 @@ def show_cost():
 	try:
 		upgrade = eval(selected_upgrade.get())  # Convert string back to tuple
 		village_count = selected_villages.get()  # Get selected village count
+		difficulty = selected_difficulty.get()  # Get selected difficulty
 
 		if tower in tower_costs and upgrade in tower_costs[tower]["upgrades"]:
 			base_cost = tower_costs[tower]["base_cost"]
 			upgrade_cost = tower_costs[tower]["upgrades"][upgrade]
 			total_cost = base_cost + upgrade_cost
+
+			# Apply difficulty multiplier
+			difficulty_multiplier = difficulty_multipliers.get(difficulty, 1.0)
+			total_cost *= difficulty_multiplier
 
 			# Apply discount from villages
 			discount_multiplier = calculate_discount(village_count)
