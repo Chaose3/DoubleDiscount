@@ -1,5 +1,5 @@
 # BTD6 Discount Calculator
-
+[![wakatime](https://wakatime.com/badge/user/d205036a-2db0-43be-889d-f2e8628e7253/project/70bc46c2-7cb6-4b14-8ac7-743e3113fca1.svg)](https://wakatime.com/badge/user/d205036a-2db0-43be-889d-f2e8628e7253/project/70bc46c2-7cb6-4b14-8ac7-743e3113fca1)
 ## Description
 This project is a Bloons TD 6 (BTD6) Discount Calculator designed for **ISAB**, who loves **Discount Villages**! It allows players to calculate the total cost of towers and upgrades while factoring in discounts from Monkey Villages and difficulty settings.
 
