@@ -205,7 +205,13 @@ tower_costs = {
             (0, 5, 0): 18000,
         }
     },
+}
 
+difficulty = {
+    "Easy": 0.85,
+    "Medium": 1.0,
+    "Hard": 1.15,
+    "Impoppable": 1.20
 }
 
 # GUI setup
@@ -224,6 +230,12 @@ tower_dropdown.pack()
 # Upgrade path selection
 upgrade_label = tk.Label(root, text="Select Crosspath:")
 upgrade_label.pack()
+
+# Difficulty selection dropdown
+tk.Label(root, text="Select Difficulty:").pack()
+selected_difficulty = tk.StringVar(value="Medium")
+difficulty_dropdown = ttk.Combobox(root, textvariable=selected_difficulty, values=list(difficulty_multipliers.keys()))
+difficulty_dropdown.pack()
 
 selected_upgrade = tk.StringVar()
 upgrade_dropdown = ttk.Combobox(root, textvariable=selected_upgrade)
