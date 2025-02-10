@@ -250,7 +250,7 @@ result_label.pack(pady=10)
 
 
 # Update upgrades when tower is selected
-def update_upgrades(event):
+def update_upgrades():
 	tower = selected_tower.get()
 	if tower in tower_costs:
 		upgrade_dropdown["values"] = [str(k) for k in tower_costs[tower]["upgrades"].keys()]
